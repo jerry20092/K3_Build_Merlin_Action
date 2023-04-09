@@ -39,6 +39,8 @@ jobs:
         u-boot-tools device-tree-compiler qemu gperf liblzo2-dev uuid-dev build-essential \
         lzma-dev liblzma-dev lzma binutils-dev patch cmake intltool libglib2.0-dev \
         gtk-doc-tools gcc-arm-linux-gnueabi
+        dpkg --add-architecture i386
+        sudo apt-get update
         sudo apt-get install lsb-core  libstdc++6:i386 gitk
      # package for 16.04   
      #   sudo apt-get install -y libncurses5 libncurses5-dev m4 bison gawk flex libstdc++6-4.7-dev g++-4.7 g++ \
