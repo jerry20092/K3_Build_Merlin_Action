@@ -39,7 +39,7 @@ jobs:
         u-boot-tools device-tree-compiler qemu gperf liblzo2-dev uuid-dev build-essential \
         lzma-dev liblzma-dev lzma binutils-dev patch cmake intltool libglib2.0-dev \
         gtk-doc-tools gcc-arm-linux-gnueabi
-        dpkg --add-architecture i386
+        sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt-get install lsb-core  libstdc++6:i386 gitk
      # package for 16.04   
