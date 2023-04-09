@@ -34,12 +34,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y libncurses5 libncurses5-dev m4 bison gawk flex g++ \
-        gengetopt git gitk zlib1g-dev autoconf autopoint libtool-bin shtool autogen \
+        gengetopt git zlib1g-dev autoconf autopoint libtool-bin shtool autogen \
         mtd-utils intltool sharutils docbook-xsl-* texinfo dos2unix xsltproc \
         u-boot-tools device-tree-compiler qemu gperf liblzo2-dev uuid-dev build-essential \
         lzma-dev liblzma-dev lzma binutils-dev patch cmake intltool libglib2.0-dev \
         gtk-doc-tools gcc-arm-linux-gnueabi
-        sudo apt-get install lsb-core  libstdc++6:i386
+        sudo apt-get install lsb-core  libstdc++6:i386 gitk
      # package for 16.04   
      #   sudo apt-get install -y libncurses5 libncurses5-dev m4 bison gawk flex libstdc++6-4.7-dev g++-4.7 g++ \
      #   gengetopt git gitk zlib1g-dev autoconf autopoint libtool-bin shtool autogen \
