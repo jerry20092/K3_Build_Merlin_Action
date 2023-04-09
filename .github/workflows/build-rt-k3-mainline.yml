@@ -1,6 +1,6 @@
 name: build rt-k3-mainline
-  with:
-    ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+with:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 on: 
   workflow_dispatch:
