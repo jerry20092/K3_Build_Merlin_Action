@@ -38,7 +38,7 @@ jobs:
         mtd-utils intltool sharutils docbook-xsl-* texinfo dos2unix xsltproc \
         u-boot-tools device-tree-compiler qemu gperf liblzo2-dev uuid-dev build-essential \
         lzma-dev liblzma-dev lzma binutils-dev patch cmake intltool libglib2.0-dev \
-        gtk-doc-tools gcc-arm-linux-gnueabi
+        gtk-doc-tools gcc-arm-linux-gnueabi automake
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt-get install lsb-core  libstdc++6:i386
