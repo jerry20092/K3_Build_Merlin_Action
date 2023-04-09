@@ -60,7 +60,6 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Update x86 package
       run: |
-        sudo dpkg --add-architecture i386
         sudo dpkg --print-foreign-architectures
         sudo apt-get update
         sudo apt-get install -y libc6-i386 lib32stdc++6 lib32z1 libelf1:i386 lib32ncurses5-dev libc6-dev-i386
