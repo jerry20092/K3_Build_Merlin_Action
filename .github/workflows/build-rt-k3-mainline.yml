@@ -28,9 +28,9 @@ on:
     types: [started]
     
 env:
-  ET0MACADDR: "00:11:22:33:44:55"    
-  MACADDR1_24G: "00:11:22:33:44:66"
-  MACADDR2_5G: "00:11:22:33:44:77"
+  ET0MACADDR: github.event.inputs.eth0     
+  MACADDR1_24G: github.event.inputs.Wlan0
+  MACADDR2_5G: github.event.inputs.Wlan1
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
