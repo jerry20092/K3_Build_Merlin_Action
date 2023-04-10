@@ -107,7 +107,17 @@ jobs:
         echo "::set-env name=MERLIN_VERSION::$(git show-ref --heads -s)"
         echo "::set-env name=MERLIN_TAG::$(git show-ref --heads --hash=8)"
         echo "::set-env name=BUILD_DATE::$(date +%Y%m%d%H%M)"
-        
+    - name: Fix aclocal error
+      run: |
+        wget https://ftp.gnu.org/gnu/automake/automake-1.15.tar.gz
+        tar -xzvf automake-1.15.tar.gz
+        cd automake-1.15
+        ./configure  --prefix=/opt/aclocal-1.15
+        make
+        sudo mkdir -p /opt
+        sudo make install
+        export PATH=/opt/aclocal-1.15/bin:$PATH
+        aclocal --version
     - name: Modify File
       run: |        
         cd  /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src/cfe/build/broadcom/bcm947xx/compressed
