@@ -118,6 +118,9 @@ jobs:
         sudo make install
         export PATH=/opt/aclocal-1.15/bin:$PATH
         aclocal --version
+        cd /usr/bin
+        rm aclocal
+        sudo ln -s /opt/aclocal-1.15/bin/aclocal-1.15 aclocal
     - name: Modify File
       run: |        
         cd  /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src/cfe/build/broadcom/bcm947xx/compressed
