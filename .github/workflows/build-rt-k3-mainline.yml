@@ -24,8 +24,6 @@ on:
 #    - master
 #  schedule:
 #    - cron: 0 8 * * 5
-  watch:
-    types: [started]
     
 env:
   ET0MACADDR: github.event.inputs.eth0     
