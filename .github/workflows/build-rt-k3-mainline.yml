@@ -119,7 +119,7 @@ jobs:
         export PATH=/opt/aclocal-1.15/bin:$PATH
         aclocal --version
         cd /usr/bin
-        rm aclocal
+        sudo rm aclocal
         sudo ln -s /opt/aclocal-1.15/bin/aclocal-1.15 aclocal
     - name: Modify File
       run: |        
