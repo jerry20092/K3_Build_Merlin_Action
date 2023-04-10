@@ -116,12 +116,11 @@ jobs:
         sed -i 's/EXTENDNO=.*/&_${{ env.MERLIN_TAG }}/g' version.conf
         
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src
-        sudo make clean
-        sudo make rt-k3
+        make rt-k3
         echo "build image done"     
         
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src/cfe/
-        sudo make
+        make
         echo "build cfe done"
         
 #    - name : Upload packages
