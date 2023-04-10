@@ -11,6 +11,10 @@ on:
         description: 'Your Eth1(2.4g) Mac'
         required: true
         default: '00:11:22:33:44:66'
+      Wlan1:
+        description: 'Your Eth2(5g) Mac'
+        required: true
+        default: '00:11:22:33:44:77'
   release:
     types: [published]
   push:
