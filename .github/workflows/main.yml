@@ -13,7 +13,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 jobs:
   build:
     runs-on: ubuntu-20.04
