@@ -79,7 +79,7 @@ jobs:
         #cd /usr/bin
         #sudo rm aclocal
         #sudo ln -s /opt/aclocal-1.15/bin/aclocal-1.15 aclocal
-        sudo ln -s /usr/bin/aclocal /usr/bin/aclocal-1.15
+        #sudo ln -s /usr/bin/aclocal /usr/bin/aclocal-1.15
         sudo ln -s /usr/bin/automake /usr/bin/automake-1.15
 
     # Runs a set of commands using the runners shell
