@@ -1,6 +1,7 @@
 name: build-rt-ac3100
 
 on: 
+  workflow_dispatch:
   release:
     types: [published]
   push:
