@@ -1,6 +1,7 @@
 
 name: build rt-k3-mainline
-
+permissions:
+  contents: write
 on: 
   workflow_dispatch:
     inputs:
