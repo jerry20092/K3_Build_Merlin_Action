@@ -3,6 +3,19 @@ name: build rt-k3-master
 
 on: 
   release:
+  inputs:
+      eth0:
+        description: 'Your Eth0 Mac'
+        required: true
+        default: '00:11:22:33:44:55'
+      Wlan0:
+        description: 'Your Eth1(2.4g) Mac'
+        required: true
+        default: '00:11:22:33:44:66'
+      Wlan1:
+        description: 'Your Eth2(5g) Mac'
+        required: true
+        default: '00:11:22:33:44:77'
     types: [published]
   push:
     tags:
@@ -15,9 +28,11 @@ on:
     types: [started]
     
 env:
-  ET0MACADDR: "00:11:22:33:44:55"    
-  MACADDR1_24G: "00:11:22:33:44:66"
-  MACADDR2_5G: "00:11:22:33:44:77"
+  ET0MACADDR: github.event.inputs.eth0     
+  MACADDR1_24G: github.event.inputs.Wlan0
+  MACADDR2_5G: github.event.inputs.Wlan1
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
 
 jobs:
   build:
@@ -32,12 +47,17 @@ jobs:
     - name: Update && install packages
       run: |
         sudo apt-get update
-        sudo apt-get install -y libncurses5 libncurses5-dev m4 bison gawk flex libstdc++6-4.7-dev g++-4.7 g++ \
-        gengetopt git gitk zlib1g-dev autoconf autopoint libtool-bin shtool autogen \
-        mtd-utils intltool sharutils docbook-xsl-* libstdc++5 texinfo dos2unix xsltproc \
+        sudo apt-get install -y libncurses5 libncurses5-dev m4 bison gawk flex g++ \
+        gengetopt git zlib1g-dev autoconf autopoint libtool-bin shtool autogen \
+        mtd-utils intltool sharutils docbook-xsl-* texinfo dos2unix xsltproc \
         u-boot-tools device-tree-compiler qemu gperf liblzo2-dev uuid-dev build-essential \
         lzma-dev liblzma-dev lzma binutils-dev patch cmake intltool libglib2.0-dev \
-        gtk-doc-tools gcc-arm-linux-gnueabi
+        gtk-doc-tools gcc-arm-linux-gnueabi automake perl
+        sudo apt install automake-1.15
+        #sudo apt-get install -y libtool-bin cmake libproxy-dev uuid-dev liblzo2-dev autoconf automake bash bzip2 diffutils file flex m4 g++ gawk groff-base libncurses5-dev libtool libslang2 make patch perl pkg-config shtool subversion tar texinfo zlib1g zlib1g-dev git gettext libexpat1-dev libssl-dev cvs gperf unzip python libxml-parser-perl gcc-multilib gconf-editor libxml2-dev g++-multilib gitk libncurses5 libncurses5-dev libvorbis-dev git autopoint autogen sed build-essential intltool libglib2.0-devxutils-dev lib32z1-dev lib32stdc++6 xsltproc gtk-doc-tools
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt-get install lsb-core  libstdc++6:i386
      # package for 16.04   
      #   sudo apt-get install -y libncurses5 libncurses5-dev m4 bison gawk flex libstdc++6-4.7-dev g++-4.7 g++ \
      #   gengetopt git gitk zlib1g-dev autoconf autopoint libtool-bin shtool autogen \
@@ -59,8 +79,7 @@ jobs:
         sudo dpkg --add-architecture i386
         sudo dpkg --print-foreign-architectures
         sudo apt-get update
-        sudo apt-get install -y libc6-i386 lib32stdc++6 lib32z1 libelf1:i386 lib32ncurses5 libc6-dev-i386
-        
+        sudo apt-get install -y libc6-i386 lib32stdc++6 lib32z1 libelf1:i386 lib32ncurses5-dev libc6-dev-i386
     - name: Clone source code
       run: |       
         #git clone https://github.com/RMerl/asuswrt-merlin
@@ -142,17 +161,13 @@ jobs:
         
     - name: Create Release
       id: create_release
-      uses: ncipollo/release-action@v1
+      uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        artifacts: "/opt/images/*.*"
-        allowUpdates: true 
-        commit: master 
-        tag: ${{ env.BUILD_DATE }}_master_k3_${{ env.MERLIN_TAG }}
+        files: "/opt/images/*.*"  
+        tag_name: ${{ env.BUILD_DATE }}_mainline_k3_${{ env.MERLIN_TAG }}
         body: |
-          this is only a latest build from master
+          this is only a latest build from mainline
           version: https://github.com/godcong/asuswrt-merlin.ng/commit/${{ env.MERLIN_VERSION }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        draft: false
-        prerelease: false
