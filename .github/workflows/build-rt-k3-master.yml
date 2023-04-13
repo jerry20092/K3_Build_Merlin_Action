@@ -2,8 +2,8 @@ name: build rt-k3-master
 
 
 on: 
-  release:
-  inputs:
+  workflow_dispatch:
+    inputs:
       eth0:
         description: 'Your Eth0 Mac'
         required: true
@@ -16,7 +16,7 @@ on:
         description: 'Your Eth2(5g) Mac'
         required: true
         default: '00:11:22:33:44:77'
-    types: [published]
+  
   push:
     tags:
     - 'v*'
