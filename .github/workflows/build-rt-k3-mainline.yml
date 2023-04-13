@@ -176,7 +176,7 @@ jobs:
         artifacts: "/opt/images/*.*,release/src-rt-7.14.114.x/src/cfe/cfe_rt-k3.bin"
         allowUpdates: true 
         commit: master 
-        tag: ${{ env.BUILD_DATE }}_mainline_k3_${{ env.MERLIN_TAG }}
+        tagname: ${{ env.BUILD_DATE }}_mainline_k3_${{ env.MERLIN_TAG }}
         body: |
           this is only a latest build from mainline
           version: https://github.com/godcong/asuswrt-merlin.ng/commit/${{ env.MERLIN_VERSION }}
