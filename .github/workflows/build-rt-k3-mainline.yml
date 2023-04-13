@@ -169,17 +169,13 @@ jobs:
 
     - name: Create Release
       id: create_release
-      uses: actions/create-release@latest
+      uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        artifacts: "/opt/images/*.*,release/src-rt-7.14.114.x/src/cfe/cfe_rt-k3.bin"
-        allowUpdates: true 
-        commit: master 
-        tagname: ${{ env.BUILD_DATE }}_mainline_k3_${{ env.MERLIN_TAG }}
+        files: "/opt/images/*.*,release/src-rt-7.14.114.x/src/cfe/cfe_rt-k3.bin"  
+        tag_name: ${{ env.BUILD_DATE }}_mainline_k3_${{ env.MERLIN_TAG }}
         body: |
           this is only a latest build from mainline
           version: https://github.com/godcong/asuswrt-merlin.ng/commit/${{ env.MERLIN_VERSION }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        draft: false
-        prerelease: false
