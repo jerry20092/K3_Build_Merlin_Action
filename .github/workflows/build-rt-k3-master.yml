@@ -138,7 +138,7 @@ jobs:
     
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src
         make clean
-        make rt-k3
+        make rt-k114
         echo "build image done"     
         
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src/cfe/
