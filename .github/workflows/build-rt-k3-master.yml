@@ -140,7 +140,8 @@ jobs:
         make rt-k114
         echo "build image done"     
         
-        cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/cfe/
+        cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
+        cd cfe
         make
         echo "build cfe done"
         
