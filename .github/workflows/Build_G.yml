@@ -139,7 +139,6 @@ jobs:
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
         ls
         cd src
-        ls dir1 | xargs -t -I asdf mv asdf dir2/asdf
         make rt-k3
         echo "build image done"     
         
