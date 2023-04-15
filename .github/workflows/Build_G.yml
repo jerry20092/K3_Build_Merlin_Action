@@ -147,7 +147,8 @@ jobs:
         make rt-k3
         echo "build image done"     
         
-        cd work
+        cd /home/runner/work/build_k3_merlin/build_k3_merlin/work
+        cd src
         cd cfe
         make
         echo "build cfe done"
