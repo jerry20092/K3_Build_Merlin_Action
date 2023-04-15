@@ -107,7 +107,7 @@ jobs:
         echo "export TOOLCHAIN_BASE=/opt/toolchains" >> ~/.profile
         echo "PATH=\$PATH:/opt/toolchains/crosstools-arm-gcc-5.3-linux-4.1-glibc-2.22-binutils-2.25/usr/bin" >> ~/.profile
         echo "PATH=\$PATH:/opt/toolchains/crosstools-aarch64-gcc-5.3-linux-4.1-glibc-2.22-binutils-2.25/usr/bin" >> ~/.profile  
-        sudo ln -s /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/ $(pwd)/work
+        sudo ln -s /home/runner/work/build_k3_merlin/build_k3_merlin/asuswrt-merlin.ng/release/src-rt-7.14.114.x/src /home/runner/work/build_k3_merlin/build_k3_merlin/work
         #sudo ln -s $(pwd)/asuswrt-merlin /media/asuswrt/asuswrt-merlin
         sudo ln -s $(pwd)/asuswrt-merlin.ng /media/asuswrt/asuswrt-merlin.ng       
         
@@ -142,6 +142,7 @@ jobs:
         cd ..
         cd src-rt-7.14.114.x
         ls
+        cd /home/runner/work/build_k3_merlin/build_k3_merlin/work
         cd src
         make rt-k3
         echo "build image done"     
