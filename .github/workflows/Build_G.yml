@@ -135,14 +135,13 @@ jobs:
         cd  /media/asuswrt/asuswrt-merlin.ng/release/src-rt
         echo "add tag to version"
         sed -i 's/EXTENDNO=.*/&_${{ env.MERLIN_TAG }}/g' version.conf
-    
-        cd /work/
+        cd work
         ls
         cd src
         make rt-k3
         echo "build image done"     
         
-        cd /work/
+        cd work
         cd cfe
         make
         echo "build cfe done"
