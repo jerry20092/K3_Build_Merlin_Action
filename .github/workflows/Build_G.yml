@@ -139,7 +139,8 @@ jobs:
         ls
         echo $(pwd)
         
-        cd work
+        cd ..
+        cd src-rt-7.14.114.x
         ls
         cd src
         make rt-k3
