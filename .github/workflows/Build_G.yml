@@ -50,7 +50,7 @@ jobs:
       uses: actions/checkout@v2
       # Runs a single command using the runners shell
     - name: Fix Argument list too long Error
-      run: sudo echo 2097152 > /proc/sys/kernel/pid_max
+      run: sudo ulimit -s unlimited
     - name: Update && install packages
       run: |
         sudo apt-get update
