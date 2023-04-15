@@ -49,6 +49,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       uses: actions/checkout@v2
       # Runs a single command using the runners shell
+    - name: Fix Argument list too long Error
+      run: sudo echo 2097152 > /proc/sys/kernel/pid_max
     - name: Update && install packages
       run: |
         sudo apt-get update
