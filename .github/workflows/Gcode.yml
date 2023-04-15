@@ -134,7 +134,7 @@ jobs:
         #export PATH=$PATH:/opt/brcm/hndtools-mipsel-linux/bin:/opt/brcm/hndtools-mipsel-uclibc/bin:
         export PATH=$PATH:/opt/brcm-arm/bin
         
-        ulimit -s 9000000
+        ulimit -s 900000000
 
         cd  /media/asuswrt/asuswrt-merlin.ng/release/src-rt
         echo "add tag to version"
