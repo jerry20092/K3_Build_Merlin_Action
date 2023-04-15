@@ -16,6 +16,11 @@ on:
         description: 'Your Eth2(5g) Mac'
         required: true
         default: '00:11:22:33:44:77'
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+
   
   push:
     tags:
@@ -126,6 +131,14 @@ jobs:
         sed -i 's/^\(1:macaddr=\).*/\1${{ env.MACADDR1_24G }}/g' rt-k3_nvram.txt
         echo "replace mac 5g address from $(cat rt-k3_nvram.txt | grep ^2:macaddr) to ${{ env.MACADDR2_5G }}"
         sed -i 's/^\(2:macaddr=\).*/\1${{ env.MACADDR2_5G }}/g' rt-k3_nvram.txt
+        
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
         
     - name: Build Firmware
       run: |
