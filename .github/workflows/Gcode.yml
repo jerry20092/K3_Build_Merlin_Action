@@ -128,7 +128,7 @@ jobs:
         sed -i 's/^\(2:macaddr=\).*/\1${{ env.MACADDR2_5G }}/g' rt-k3_nvram.txt
     - name: Fix ARG_MAX
       run: |
-        sudochdev -l sys0 -a ncargs=32
+        sudo chdev -l sys0 -a ncargs=32
     - name: Build Firmware
       run: |
         #export PATH=$PATH:/opt/brcm/hndtools-mipsel-linux/bin:/opt/brcm/hndtools-mipsel-uclibc/bin:
