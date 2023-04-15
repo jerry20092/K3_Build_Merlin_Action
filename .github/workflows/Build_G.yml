@@ -135,6 +135,10 @@ jobs:
         cd  /media/asuswrt/asuswrt-merlin.ng/release/src-rt
         echo "add tag to version"
         sed -i 's/EXTENDNO=.*/&_${{ env.MERLIN_TAG }}/g' version.conf
+        
+        ls
+        echo $(pwd)
+        
         cd work
         ls
         cd src
