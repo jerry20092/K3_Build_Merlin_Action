@@ -138,10 +138,12 @@ jobs:
     
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
         echo $(pwd)
+        cd src
         make rt-k3
         echo "build image done"     
         
         cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
+        cd src
         cd cfe
         make
         echo "build cfe done"
