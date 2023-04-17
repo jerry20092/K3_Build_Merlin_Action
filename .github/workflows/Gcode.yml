@@ -143,7 +143,7 @@ jobs:
         sed -i 's/EXTENDNO=.*/&_${{ env.MERLIN_TAG }}/g' version.conf
     
         #cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
-        CD /tmp/work/
+        cd /tmp/work/
         echo $(pwd)
         cd src
         make "rt-k3"
