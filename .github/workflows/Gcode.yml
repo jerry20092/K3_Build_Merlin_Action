@@ -44,6 +44,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       uses: actions/checkout@v2
       # Runs a single command using the runners shell
+    - Show Arg Max
+      run: getconf ARG_MAX
     - name: Update && install packages
       run: |
         sudo apt-get update
