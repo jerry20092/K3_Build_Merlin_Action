@@ -83,12 +83,12 @@ jobs:
         export PATH=$PATH:/opt/brcm-arm/bin
         
 
-        #cd  /media/asuswrt/asuswrt-merlin.ng/release/src-rt
+        cd /asuswrt-merlin.ng/release/src-rt
         echo "add tag to version"
-        #sed -i 's/EXTENDNO=.*/&_${{ env.MERLIN_TAG }}/g' version.conf
+        sed -i 's/EXTENDNO=.*/&_${{ env.MERLIN_TAG }}/g' version.conf
     
-        #cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
-        cd /tmp/work/
+        cd /media/asuswrt/asuswrt-merlin.ng/release/src-rt-7.14.114.x/
+        #cd /asuswrt-merlin.ng/release
         echo $(pwd)
         cd src
         make rt-k3
