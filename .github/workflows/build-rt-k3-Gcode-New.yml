@@ -57,7 +57,7 @@ jobs:
         git clone https://github.com/ghostnup/asuswrt-merlin.ng
         git clone https://github.com/ghostnup/k3screenctrl asuswrt-merlin.ng/release/src/router/k3screenctrl 
         git clone https://github.com/ghostnup/am-toolchains.git
-        sh $HOME/amcfwm/amcfwm.sh install
+        #sh $HOME/amcfwm/amcfwm.sh install
         sudo mkdir -p /media/asuswrt/
         sudo mkdir -p /opt/images/
                 
